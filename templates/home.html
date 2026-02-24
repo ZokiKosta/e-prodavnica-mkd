@@ -9,39 +9,39 @@
 
     <div class="hero-text">
         <h1 class="hero-title">
-            Discover Products<br>
-            Designed for Everyday Life
+            Откријте производи<br>
+            дизајнирани за секојдневниот живот
         </h1>
 
         <p class="hero-subtitle">
-            Premium quality, fast delivery, and secure shopping — all in one place.
+            Премиум квалитет, брза испорака и безбедно купување - сè на едно место.
         </p>
 
         <a href="{{ url_for('catalogue') }}" class="btn hero-btn">
-            Shop Now
+            Испорачај сега
         </a>
     </div>
 </section>
 
 <section class="features">
     <div class="feature feature-delivery">
-        <h3>🚚 Fast Delivery</h3>
-        <p>Nationwide shipping with express delivery options and real-time tracking.</p>
+        <h3>🚚 Брза Испорака</h3>
+        <p>Испорака низ целата земја со опции за експресна испорака и следење во реално време.</p>
     </div>
 
     <div class="feature feature-payment">
-        <h3>💳 Secure Payment</h3>
-        <p>Encrypted transactions with trusted payment providers for total safety.</p>
+        <h3>💳 Безбедно плаќање</h3>
+        <p>Енркиптирани трансакции со доверливи даватели на услуги за плаќање за целосна безбедност.</p>
     </div>
 
     <div class="feature feature-quality">
-        <h3>⭐ Quality Products</h3>
-        <p>Hand-picked products tested for durability, design, and performance.</p>
+        <h3>⭐ Квалитетни продукти</h3>
+        <p>Рачно одбрани производи тестирани за издржливост, дизајн и перформанси.</p>
     </div>
 </section>
 
 <section class="recommended-section">
-    <h2 class="section-title">Recommended Products</h2><br><br>
+    <h2 class="section-title">Препорачани Продукти</h2><br><br>
 
     <div class="recommended-bar">
         {% for product in recommended %}
@@ -54,7 +54,7 @@
 
                 <div class="locked-actions">
                     <a href="{{ url_for('product_detail', product_id=product.id) }}" class="btn small">
-                        View
+                        Видете детали
                     </a>
 
                     <form action="{{ url_for('cart_add', product_id=product.id) }}" method="post">
@@ -62,9 +62,9 @@
                 type="submit"
                 {% if product.stock|int <= 0 %}disabled{% endif %}>
             {% if product.stock|int > 0 %}
-                Add to Cart
+                Ставете во кошничка
             {% else %}
-                Out of Stock
+                Нема во залиха
             {% endif %}
         </button>
 </form>
@@ -77,7 +77,7 @@
 </section>
 
 <section class="partners">
-    <h2>Our Partners</h2>
+    <h2>Наши партнери</h2>
 
     <div class="partners-grid">
         <div class="partner-card">

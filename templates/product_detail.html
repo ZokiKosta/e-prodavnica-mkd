@@ -11,15 +11,15 @@
             <h1>{{ product.name }}</h1>
             <div class="muted">{{ product.category }} | $ {{ product.price }}</div>
             <div class="stock-status {% if product.stock|int > 0 %}stock-in{% else %}stock-out{% endif %}">
-                {% if product.stock|int > 0 %}In Stock{% else %}Out of stock{% endif %}
+                {% if product.stock|int > 0 %}Во залиха{% else %}Нема во залиха{% endif %}
             </div>
             <form action="{{ url_for('cart_add', product_id=product.id) }}" method="post">
         <button class="btn primary"
             {% if product.stock|int <= 0 %}disabled{% endif %}>
             {% if product.stock|int > 0 %}
-                Add to Cart
+                Додади во кошничка
             {% else %}
-                Out of stock
+                Нема во залиха
             {% endif %}
         </button>
     </form>
@@ -29,26 +29,26 @@
 
     <div class="product-details">
         {% if product.ai_description %}
-        <h2>Description</h2>
-        <pre class="pre">{{ product.ai_description | safe }} <br><br>Made by GeminiAI</pre>
+        <h2>Дескрипција</h2>
+        <pre class="pre">{{ product.ai_description | safe }} <br><br>Направено со GeminiAI АПИ</pre>
         {% endif %}
 
         {% if product.notes %}
-        <h2>Notes</h2>
+        <h2>Забелешки</h2>
         <pre class="pre">{{ product.notes }}</pre>
         {% endif %}
     </div>
 
     <div class="product-actions">
-        <a class="btn edit" href="{{ url_for('product_edit', product_id=product.id) }}">Edit</a>
-        <form method="post" action="{{ url_for('product_delete', product_id=product.id) }}" onsubmit="return confirm('Delete?');">
-            <button class="btn danger" type="submit">Delete</button>
+        <a class="btn edit" href="{{ url_for('product_edit', product_id=product.id) }}">Промени</a>
+        <form method="post" action="{{ url_for('product_delete', product_id=product.id) }}" onsubmit="return confirm('Избриши?');">
+            <button class="btn danger" type="submit">Избриши</button>
         </form>
     </div>
 </div>
 
 <section class="recommended-section">
-    <h2 class="section-title">Recommended Products</h2>
+    <h2 class="section-title">Препорачани продукти</h2>
 
     <div class="recommended-bar">
         {% for product in recommended %}
@@ -61,7 +61,7 @@
 
                 <div class="locked-actions">
                     <a href="{{ url_for('product_detail', product_id=product.id) }}" class="btn small">
-                        View
+                        Видете детеали
                     </a>
 
                     <form action="{{ url_for('cart_add', product_id=product.id) }}" method="post">
@@ -69,9 +69,9 @@
                 type="submit"
                 {% if product.stock|int <= 0 %}disabled{% endif %}>
             {% if product.stock|int > 0 %}
-                Add to Cart
+                Ставете во кошничка
             {% else %}
-                Out of Stock
+                Нема во залиха
             {% endif %}
         </button>
 </form>

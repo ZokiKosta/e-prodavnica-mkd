@@ -5,14 +5,14 @@
 {% endblock %}
 
 {% block content %}
-<br><h1 class="catalogue-title">Catalogue</h1><br><br>
+<br><h1 class="catalogue-title">Каталог</h1><br><br>
 
 <form method="get" class="filter-form">
     <div class="filter-bar">
         <input type="text" name="q" placeholder="Search..." value="{{ q }}" class="filter-input">
 
         <select name="category" class="filter-select">
-            <option value="">All Categories</option>
+            <option value="">Сите Категории</option>
             {% for cat in categories %}
             <option value="{{ cat }}" {% if cat == category %}selected{% endif %}>{{ cat }}</option>
             {% endfor %}
@@ -23,7 +23,7 @@
             <output id="priceOutput">{{ max_price or 1999 }}</output>
         </div>
 
-        <button type="submit" class="filter-button">Filter</button>
+        <button type="submit" class="filter-button">Филтрирај</button>
     </div>
 </form>
 
@@ -46,7 +46,7 @@
 
 <div class="pagination">
     {% if page > 1 %}
-        <a href="{{ url_for('catalogue', page=page-1, q=q, category=category) }}">Previous</a>
+        <a href="{{ url_for('catalogue', page=page-1, q=q, category=category) }}">Назад</a>
     {% else %}
         <span class="disabled">Previous</span>
     {% endif %}
@@ -54,14 +54,14 @@
     <span>Page {{ page }} of {{ total_pages }}</span>
 
     {% if page < total_pages %}
-        <a href="{{ url_for('catalogue', page=page+1, q=q, category=category) }}">Next</a>
+        <a href="{{ url_for('catalogue', page=page+1, q=q, category=category) }}">Следно</a>
     {% else %}
         <span class="disabled">Next</span>
     {% endif %}
 </div>
 
 <section class="partners catalogue-partners">
-    <h2>Shop by Brand</h2>
+    <h2>Купувај по фирма</h2>
 
     <div class="partners-grid">
         <a href="{{ url_for('catalogue', q='HP') }}" class="partner-card">
