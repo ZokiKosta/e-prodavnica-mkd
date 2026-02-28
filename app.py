@@ -197,7 +197,7 @@ def product_edit(product_id: int):
         return redirect(url_for("product_detail", product_id=product.id))
     return render_template('product_form.html', product=product, categories=categories)
 
-@app.route('/products/<int:product_id>/delete', methods=['GET', 'POST'])
+@app.route('/products/<int:product_id>/delete', methods=['POST'])
 def product_delete(product_id: int):
     product = session.get(Product, product_id)
     if not product:
