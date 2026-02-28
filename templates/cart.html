@@ -32,11 +32,11 @@
     {% endfor %}
 </table>
 
-<h2>Total: {{ total }} $</h2>
+<h2>Вкупно: {{ total }} $</h2>
 <form class="button-form">
-    <a href="{{ url_for('cart_clear') }}" class="btn danger btn-form-cart">Clear</a>
+    <a href="{{ url_for('cart_clear') }}" class="btn danger btn-form-cart">Испранзни</a>
 
-    <a href="{{ url_for('checkout') }}" class="btn btn-form-cart">Checkout</a>
+    <a href="{{ url_for('checkout') }}" class="btn btn-form-cart">Наплата</a>
 </form>
 
 {% else %}
